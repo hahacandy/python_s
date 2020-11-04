@@ -1,8 +1,9 @@
 from collections import defaultdict
 from collections import OrderedDict
 
+
 d = dict()
-print(d["first"])
+#print(d["first"])
 
 # Reference from
 # https://dongyeopblog.wordpress.com/2016/04/08/python-defaultdict-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/

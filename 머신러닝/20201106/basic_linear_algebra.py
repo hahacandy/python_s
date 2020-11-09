@@ -53,11 +53,14 @@ def matrix_addition(*matrix_variables):
 def matrix_subtraction(*matrix_variables):
     if matrix_size_check(*matrix_variables) == False:
         raise ArithmeticError
-    return None
+    else:
+        result = [[sum(a[0])-sum(b) for b in zip(*a)] for a in zip(*matrix_variables)]
+    return result
 
 
 def matrix_transpose(matrix_variable):
-    return None
+    result = [a for a in zip(*matrix_variable)]
+    return result
 
 
 def scalar_matrix_product(alpha, matrix_variable):
@@ -102,8 +105,17 @@ if __name__ == "__main__":
     # print(is_matrix_equal(matrix_x, matrix_y, matrix_y, matrix_y))  # Expected value: False
     # print(is_matrix_equal(matrix_x, matrix_x))  # Expected value: True
 
-    matrix_x = [[2, 2], [2, 2]]
-    matrix_y = [[2, 5], [2, 1]]
-    matrix_z = [[2, 4], [5, 3]]
-    print(matrix_addition(matrix_x, matrix_y))  # Expected value: [[4, 7], [4, 3]]
-    print(matrix_addition(matrix_x, matrix_y, matrix_z))  # Expected value: [[6, 11], [9, 6]]
+    # matrix_x = [[2, 2], [2, 2]]
+    # matrix_y = [[2, 5], [2, 1]]
+    # matrix_z = [[2, 4], [5, 3]]
+    # print(matrix_addition(matrix_x, matrix_y))  # Expected value: [[4, 7], [4, 3]]
+    # print(matrix_addition(matrix_x, matrix_y, matrix_z))  # Expected value: [[6, 11], [9, 6]]
+
+    # matrix_x = [[2, 2], [2, 2]]
+    # matrix_y = [[2, 5], [2, 1]]
+    # matrix_z = [[2, 4], [5, 3]]
+    # print(matrix_subtraction(matrix_x, matrix_y))  # Expected value: [[0, -3], [0, 1]]
+    # print(matrix_subtraction(matrix_x, matrix_y, matrix_z))  # Expected value: [[-2, -7], [-5, -2]]
+
+    # matrix_w = [[2, 5], [1, 1], [2, 2]]
+    # print(matrix_transpose(matrix_w))

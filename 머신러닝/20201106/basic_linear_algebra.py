@@ -45,7 +45,9 @@ def is_matrix_equal(*matrix_variables):
 def matrix_addition(*matrix_variables):
     if matrix_size_check(*matrix_variables) == False:
         raise ArithmeticError
-    return None
+    else:
+        result = [[sum(b) for b in zip(*a)] for a in zip(*matrix_variables)]
+    return result
 
 
 def matrix_subtraction(*matrix_variables):
@@ -94,8 +96,14 @@ if __name__ == "__main__":
     # print(matrix_size_check(matrix_x, matrix_y, matrix_z))  # Expected value: False
     # print(matrix_size_check(matrix_y, matrix_z))  # Expected value: True
     # print(matrix_size_check(matrix_x, matrix_w))  # Expected value: True
+    #
+    # matrix_x = [[2, 2], [2, 2]]
+    # matrix_y = [[2, 5], [2, 1]]
+    # print(is_matrix_equal(matrix_x, matrix_y, matrix_y, matrix_y))  # Expected value: False
+    # print(is_matrix_equal(matrix_x, matrix_x))  # Expected value: True
 
     matrix_x = [[2, 2], [2, 2]]
     matrix_y = [[2, 5], [2, 1]]
-    print(is_matrix_equal(matrix_x, matrix_y, matrix_y, matrix_y))  # Expected value: False
-    print(is_matrix_equal(matrix_x, matrix_x))  # Expected value: True
+    matrix_z = [[2, 4], [5, 3]]
+    print(matrix_addition(matrix_x, matrix_y))  # Expected value: [[4, 7], [4, 3]]
+    print(matrix_addition(matrix_x, matrix_y, matrix_z))  # Expected value: [[6, 11], [9, 6]]

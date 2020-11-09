@@ -154,4 +154,4 @@ if __name__ == "__main__":
     # test
     matrix_y = [[1, 1, 2], [2, 1, 1]]
     matrix_z = [[2,5,1], [4,3,3]]
-    print([a for a in zip(matrix_y, matrix_z)])
+    print([[sum(aa*bb for aa, bb in zip(a, b)) for b in matrix_z] for a in matrix_y])

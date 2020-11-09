@@ -64,7 +64,8 @@ def matrix_transpose(matrix_variable):
 
 
 def scalar_matrix_product(alpha, matrix_variable):
-    return None
+    result = [[alpha*b for b in a] for a in matrix_variable]
+    return result
 
 
 def is_product_availability_matrix(matrix_a, matrix_b):
@@ -119,3 +120,12 @@ if __name__ == "__main__":
 
     # matrix_w = [[2, 5], [1, 1], [2, 2]]
     # print(matrix_transpose(matrix_w))
+
+    matrix_x = [[2, 2], [2, 2], [2, 2]]
+    matrix_y = [[2, 5], [2, 1]]
+    matrix_z = [[2, 4], [5, 3]]
+    matrix_w = [[2, 5], [1, 1], [2, 2]]
+    print(scalar_matrix_product(3, matrix_x))  # Expected value: [[6, 6], [6, 6], [6, 6]]
+    print(scalar_matrix_product(2, matrix_y))  # Expected value: [[4, 10], [4, 2]]
+    print(scalar_matrix_product(4, matrix_z))  # Expected value: [[8, 16], [20, 12]]
+    print(scalar_matrix_product(3, matrix_w))  # Expected value: [[6, 15], [3, 3], [6, 6]]

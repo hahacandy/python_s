@@ -33,12 +33,7 @@ def matrix_size_check(*matrix_variables):
     result = []
     [result.append(1) for a in matrix_variables if len(matrix_variables[0]) == len(a)]
 
-    if len(result) == len(matrix_variables):
-        result = True
-    else:
-        result = False
-
-    return result
+    return len(result) == len(matrix_variables)
 
 
 def is_matrix_equal(*matrix_variables):

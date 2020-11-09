@@ -37,7 +37,9 @@ def matrix_size_check(*matrix_variables):
 
 
 def is_matrix_equal(*matrix_variables):
-    return None
+    result = []
+    [result.append(matrix_variables[0] == a) for a in matrix_variables]
+    return all(result)
 
 
 def matrix_addition(*matrix_variables):
@@ -95,6 +97,5 @@ if __name__ == "__main__":
 
     matrix_x = [[2, 2], [2, 2]]
     matrix_y = [[2, 5], [2, 1]]
-
     print(is_matrix_equal(matrix_x, matrix_y, matrix_y, matrix_y))  # Expected value: False
     print(is_matrix_equal(matrix_x, matrix_x))  # Expected value: True

@@ -170,30 +170,58 @@ test_array3 = np.array([[[1, 4, 5, 8], [1, 2, 3, 4]], [[1, 2, 3, 4], [1, 2, 3, 4
 # print(test_matrix + test_matrix2) # test_matrix2 의 1row값 전체가 test_matrix에 순서대로 더해지는것을 볼수잇음
 
 
-# Numpy performance #1
-
-
-def sclar_vector_product(_scalar, _vector):
-    result = []
-    for value in vector:
-        result.append(_scalar * value)
-    return result
-
-
-iternation_max = 10
-
-vector = list(range(iternation_max))
-scalar = 2
-
-import timeit
-#for loop 를 이용한 성능
-t1 = timeit.Timer("sclar_vector_product(scalar, vector)", globals=globals())
-#for loop 를 이용한 성능
+# # Numpy performance #1
+# def sclar_vector_product(_scalar, _vector):
+#     result = []
+#     for value in vector:
+#         result.append(_scalar * value)
+#     return result
+#
+# iternation_max = 10
+#
+# vector = list(range(iternation_max))
+# scalar = 2
+#
+# import timeit
+# #for loop 를 이용한 성능
+# t1 = timeit.Timer("sclar_vector_product(scalar, vector)", globals=globals())
+# #for loop 를 이용한 성능
 # t2 = timeit.Timer("[scalar * value for value in range(iternation_max)]", globals=globals())
-# # numpy를 이용한 성능
+# # # numpy를 이용한 성능
 # t3 = timeit.Timer("np.arange(iternation_max)*scalar", globals=globals())
-
-print(t1.timeit())
+#
+# print(t1.timeit())
 # print(t2.timeit())
 # print(t3.timeit())
+# #numpy가 c언어로 만들어진거라 더 빨라야하는데 이상함
+#
+# #넘파이는 계산은 괜찮지만, 매트릭스나 백터끼리 붙이는건 비추한다고함, 그 이유는 메모리공간 확보떄문이라고 함
+# # 이떄는 일반 파이썬이 낫다는데, 이유는 파이썬은 그냥 빈메모리공간에 값을 바로 집어넣기 떄문이라고함
+
+
+
+##comparisons
+# # all & any
+# a = np.arange(10)
+# print(a)
+# print(a > 5)
+# print(np.any(a>5), np.any(a<0)) # 하나라도 만족하면 true 그렇지 않으면 false
+# print(np.all(a>5), np.any(a<10)) # 모두 만족하면 true, 그렇지않으면 false
+
+
+# logical
+# a = np.array([1, 3, 0], float)
+# print(np.logical_and(a>0, a<3)) #and조건
+#
+# b = np.array([True, False, True], bool)
+# print(np.logical_not(b)) # 반대로 된다고 생각하면될듯
+#
+# c = np.array([False, True, False], bool)
+# print(np.logical_or(b, c)) # or조건
+
+#where
+a = np.array([1, 3, 0], float)
+print(np.where(a>0, 3, 2)) # a>0 true이면 3을 false면 2를 출력
+print(np.where(a)) #true 의 인덱스값을 가져옴
+
 

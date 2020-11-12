@@ -219,9 +219,48 @@ test_array3 = np.array([[[1, 4, 5, 8], [1, 2, 3, 4]], [[1, 2, 3, 4], [1, 2, 3, 4
 # c = np.array([False, True, False], bool)
 # print(np.logical_or(b, c)) # or조건
 
-#where
-a = np.array([1, 3, 0], float)
-print(np.where(a>0, 3, 2)) # a>0 true이면 3을 false면 2를 출력
-print(np.where(a)) #true 의 인덱스값을 가져옴
+
+# #where
+# a = np.array([1, 3, 0], float)
+# print(np.where(a>0, 3, 2)) # a>0 true이면 3을 false면 2를 출력
+# print(np.where(a)) #true 의 인덱스값을 가져옴
+
+
+# #argmax & argmin
+# # array 내 최대값 또는 최소값의 index를 반환함
+# a = np.array([1,2,3,4,5,8,78,23,3])
+# print(np.argmax(a), np.argmin(a)) #최대값 최소값
+# #axis기반
+# a=np.array([[1,2,4,7], [9,88,6,45], [9,76,3,4]])
+# print(np.argmax(a, axis=1), np.argmin(a, axis=0)) # axis=1은 가로중의 인덱스, axis=0은 세로중의 인덱스
+
+
+# #boolean index
+# a = np.array(
+#     [[0,5,10,15,20],
+#     [1,6,11,16,26],
+#     [2,7,12,17,22]])
+# b = a < 15
+# print(b)
+# print()
+# print(b.astype(np.int))
+
+# #fancy index
+# # numpy는 array를 index value로 사용해서 값을 추출하는 방법
+# # a = np.array([2,4,6,8])
+# # b = np.array([0,0,1,3,2,1], int)
+# # print(a[b])
+# # print(a.take(b)) # a[b] 와 똑같지만 명시적으로 이렇게 사용하는것을 선호한다고함
+#
+# #matrix 형태의 데이터도 가능
+# a = np.array([[1,4], [9,16]], float)
+# b = np.array([0,0,1,1,0], int)
+# c = np.array([0,1,1,1,1], int)
+# print(a[b,c])
+
+
+#numpy object -npy
+#numpy object (pickle)형태로 데이터를 저장하고 불러옴
+#binary 파일 형태로 저장함
 
 

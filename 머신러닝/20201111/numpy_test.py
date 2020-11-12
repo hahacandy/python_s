@@ -13,6 +13,8 @@ test_array = np.array([1, 4, 5, 8], float)
 test_array = np.array([1, 4, 5, 8], float)
 test_array2 = np.array([[1, 4, 5, 8], [1, 2, 3, 4]], float)
 test_array3 = np.array([[[1, 4, 5, 8], [1, 2, 3, 4]], [[1, 2, 3, 4], [1, 2, 3, 4]]], float)
+
+
 # print(test_array.shape)
 # print(test_array2.shape)
 
@@ -58,19 +60,19 @@ test_array3 = np.array([[[1, 4, 5, 8], [1, 2, 3, 4]], [[1, 2, 3, 4], [1, 2, 3, 4
 # print(np.arange(0, 5, 0.5)) #시작 끝 스탭
 # print(np.arange(30).reshape(5,6))
 
-#0으로 가득찬 ndarray 생성
+# 0으로 가득찬 ndarray 생성
 # print(np.zeros(shape=(10,), dtype=np.int8))
 # print(np.zeros((2,5)))
 
-#1로 가득찬 생성
+# 1로 가득찬 생성
 # print(np.ones(shape=10, dtype=np.int8))
 # print(np.ones((2,5)))
 
-#empty 로 생성, 메모리의 주소값인가 여튼 저건 갈비지값
+# empty 로 생성, 메모리의 주소값인가 여튼 저건 갈비지값
 # print(np.empty(shape=(10,), dtype=np.int8))
 # print(np.empty((3,5)))
 
-#something_like
+# something_like
 # test_matrix = np.arange(30).reshape(5,6)
 # print(test_matrix)
 # print()
@@ -81,7 +83,7 @@ test_array3 = np.array([[[1, 4, 5, 8], [1, 2, 3, 4]], [[1, 2, 3, 4], [1, 2, 3, 4
 # print()
 # print(np.identity(5))
 
-#eye
+# eye
 # print(np.eye(4))
 # print(np.eye(N=3, M=6, dtype=np.int8))
 # print(np.eye(3,5, k=2)) #k=start index
@@ -140,7 +142,7 @@ test_array3 = np.array([[[1, 4, 5, 8], [1, 2, 3, 4]], [[1, 2, 3, 4], [1, 2, 3, 4
 # print(np.concatenate((a, b.T), axis=1)) # 컬럼과 컬럼을 붙임 .T가 필요한듯 자세히는 모름
 
 
-#operations b/t arrays
+# operations b/t arrays
 # Numpy는 array간의 기본적인 사칙연산을 지원함
 # test_a = np.array([[1,2,3], [4,5,6]], float)
 # print(test_a + test_a)
@@ -154,29 +156,44 @@ test_array3 = np.array([[[1, 4, 5, 8], [1, 2, 3, 4]], [[1, 2, 3, 4], [1, 2, 3, 4
 # print(test_a.dot(test_b)) # 이게 진짜 행렬 곱셈
 
 # broadcasting
-# Shape이 다른 배열 간 연산을 지원하는 기능
-test_matrix = np.array([[1,2,3], [4,5,6]], float)
-scalar = 3
-print(test_matrix + scalar)
+# Shape이 다른 배열 간 연산을 지원하는 기능 + - * / **(제곱) 가능
+# test_matrix = np.array([[1,2,3], [4,5,6]], float)
+# scalar = 3
+# print(test_matrix + scalar)
+
+# test_matrix = np.array([[0,0,0], [10,10,10], [20,20,20], [30,30,30]])
+# print(test_matrix)
+# print()
+# test_matrix2 = np.array([1,2,3])
+# print(test_matrix2)
+# print()
+# print(test_matrix + test_matrix2) # test_matrix2 의 1row값 전체가 test_matrix에 순서대로 더해지는것을 볼수잇음
 
 
+# Numpy performance #1
 
 
+def sclar_vector_product(_scalar, _vector):
+    result = []
+    for value in vector:
+        result.append(_scalar * value)
+    return result
 
 
+iternation_max = 10
 
+vector = list(range(iternation_max))
+scalar = 2
 
+import timeit
+#for loop 를 이용한 성능
+t1 = timeit.Timer("sclar_vector_product(scalar, vector)", globals=globals())
+#for loop 를 이용한 성능
+# t2 = timeit.Timer("[scalar * value for value in range(iternation_max)]", globals=globals())
+# # numpy를 이용한 성능
+# t3 = timeit.Timer("np.arange(iternation_max)*scalar", globals=globals())
 
-
-
-
-
-
-
-
-
-
-
-
-
+print(t1.timeit())
+# print(t2.timeit())
+# print(t3.timeit())
 

@@ -39,14 +39,14 @@ test_array3 = np.array([[[1, 4, 5, 8], [1, 2, 3, 4]], [[1, 2, 3, 4], [1, 2, 3, 4
 
 
 # indexing
-# a = np.array([[1,2,3], [4.5,5,6]], int)
-# print(a)
-# print(a[0,0])
-# print(a[0][0])
-# a[0,0] = 12
-# print(a)
-# a[0][0] = 5
-# print(a)
+a = np.array([[1,2,3], [4.5,5,6]], int)
+print(a)
+print(a[0,0])
+print(a[0][0])
+a[0,0] = 12
+print(a)
+a[0][0] = 5
+print(a)
 
 # slicing
 # a = np.array([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]], int)
